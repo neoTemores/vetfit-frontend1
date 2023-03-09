@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("./Assets/usaa3.webp");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
+  padding: 1rem 2rem;
+}
+
+.appContainer {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1rem;
+}
+
+.headerContainer {}
+
+.navbarContainer {
+  /* border: 1px solid yellow; */
+  background-color: rgba(0, 0, 255, 0.5);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  display: flex;
+  justify-content: space-evenly;
+  padding: .5rem .5rem;
+  font-size: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
   color: white;
+  opacity: .5;
 }
 
-.App-link {
-  color: #61dafb;
+.navLink:hover {
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.activeLink {
+  opacity: 1;
+  border-bottom: 1px solid white;
+}
+
+.allRecordsContainer {
+  padding: 1rem;
+}
+
+.recordCard {
+  margin-bottom: 1rem;
+  /* background-color: rgba(0, 0, 0, .25); */
+  background-color: rgba(255, 255, 255, .3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  min-height: 100px;
+  transition: all .2s ease-in-out;
+}
+
+.recordCard:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .8);
+
+}
+
+.recordTitle {
+  padding: .5rem;
+}
+
+.recordBody {
+  text-align: left;
+  padding: 1rem;
+}
+
+.individualRecordContainer {}
+
+.individualCard:hover {
+  cursor: default;
+  background-color: rgba(255, 255, 255, .3);
+
 }
