@@ -7,7 +7,7 @@ function IndividualRecord({ individualRecordData }) {
     }, [])
     return (
         <div className='individualRecordContainer allRecordsContainer'>
-            {individualRecordData[0] && <h2>All records by user# {individualRecordData[0].userId}</h2>}
+            {individualRecordData[0] && <h2>Edit record #  {individualRecordData[0].id}</h2>}
             <br />
             {individualRecordData.map(elem => (
                 <div className='recordCard individualCard' key={elem.id} id={elem.userId}>

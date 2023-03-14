@@ -19,6 +19,107 @@ body {
   padding: 1rem 2rem;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+  z-index: 1;
+  min-width: 600px;
+  min-height: 200px;
+  background-color: #eee;
+  text-align: center;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  position: relative;
+  animation: animate 0.3s;
+  padding: 1rem 0rem;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: .25rem;
+  right: .25rem;
+  /* margin-left: auto;
+  margin-right: 1rem; */
+  color: red;
+  outline: none;
+  border: none;
+  font-weight: bolder;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+  opacity: .5;
+  background-color: transparent;
+}
+
+.closeModalBtn:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.individualCard {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: .5rem 1rem;
+}
+
+.individualCard:hover {
+  cursor: default;
+}
+
+.editTextArea,
+.editTitleBox {
+  /* background: #fff; */
+  /* border: dashed #bc2122 1px; */
+  border-radius: 5px;
+  padding: .25rem;
+
+  /* height: auto; */
+  /* width: 100%; */
+}
+
+.editTitleBox {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.editControlsContainer {
+  margin-top: 1rem;
+  display: flex;
+  gap: .5rem;
+  justify-content: space-evenly;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(0.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 .appContainer {
   text-align: center;
   display: flex;
@@ -85,10 +186,28 @@ body {
   padding: 1rem;
 }
 
-.individualRecordContainer {}
+.home-about--Container {
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  background-color: rgba(255, 255, 255, .8);
 
-.individualCard:hover {
-  cursor: default;
-  background-color: rgba(255, 255, 255, .3);
+}
 
+.home-about--Content {
+  min-height: 50dvh;
+
+}
+
+.home-about--Content>p {
+  text-align: left;
+  margin-top: .5rem;
+  text-indent: 1rem;
+}
+
+.controlBtn {
+  width: 200px;
+  /* border-radius: 5px; */
 }
