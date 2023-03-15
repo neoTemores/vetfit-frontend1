@@ -1,11 +1,7 @@
-import React from 'react'
-
 const Header = () => {
     return (
-        <div className='headerContainer'>
-
+        <div className='titleContainer'>
             <h1 className="headerTitle">Application Title</h1>
-
         </div>
     )
 }
