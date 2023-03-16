@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { FiEdit, FiSave, FiTrash2, FiX, FiCheck } from 'react-icons/fi'
+import { FiX } from 'react-icons/fi'
+import EditModalControls from './EditModalControls';
+import EditModalVerifyDelete from './EditModalVerifyDelete';
 
 const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patchRecord, deleteRecord }) => {
 
-    const [editing, setEditing] = useState(false);
     const [editData, setEditData] = useState({ "title": "", "body": "" })
+    const [editing, setEditing] = useState(false)
+    const [verifyDelete, setVerifyDelete] = useState(false)
 
     useEffect(() => {
         individualRecordData.length > 0 &&
@@ -16,20 +19,17 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
     }, [individualRecordData])
 
     const handleDelete = (e) => {
-        // SHOULD WE VALIDATE DELETION ? CREATE NEW STATE AND RENDER NEW CONTROL BUTTONS YES/NO
 
         setAllRecordsData(prevData => { return prevData.filter(elem => +elem.id !== +e.target.dataset.id) })
         deleteRecord(e.currentTarget.dataset.id)
         setShowModal(false)
     }
 
-    const handleEdit = () => { setEditing(!editing) }
-
     const handleSave = (e) => {
 
         setAllRecordsData(prevData => {
             prevData.forEach(elem => {
-                if (+elem.id === +e.target.dataset.id) {
+                if (+elem.id === +e.currentTarget.dataset.id) {
                     elem.title = editData.title
                     elem.body = editData.body
                 }
@@ -81,36 +81,28 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
                             <p className="recordBody">{editData.body}</p>
                         }
 
-                        <span>By user# {elem.userId}, Record Id: {elem.id}</span>
+                        <span>By User: {elem.userId}, Record Id: {elem.id}</span>
 
+                        {verifyDelete && <span className='verifyDeleteMsg'>Delete this record?</span>}
                         <div className='editControlsContainer'>
-                            {!editing &&
-                                <button
-                                    data-id={elem.id}
-                                    onClick={handleDelete}
-                                    className='controlBtn delete'>
-                                    <FiTrash2 /> Delete
-                                </button>
+
+                            {verifyDelete ?
+                                <EditModalVerifyDelete
+                                    elem={elem}
+                                    cancelDelete={() => setVerifyDelete(false)}
+                                    handleDelete={handleDelete}
+                                />
+                                :
+                                <EditModalControls
+                                    elem={elem}
+                                    editing={editing}
+                                    setEditing={setEditing}
+                                    toggleDelete={() => setVerifyDelete(true)}
+                                    handleSave={handleSave} />
                             }
 
-                            <button
-                                onClick={handleEdit}
-                                className='controlBtn edit'>
-                                {editing ?
-                                    <>Done Editing <FiCheck style={{ "color": "green", "fontSize": "1.5rem" }} /></>
-                                    :
-                                    <><FiEdit /> Edit</>
-                                }
-                            </button>
 
-                            {!editing &&
-                                <button
-                                    data-id={elem.id}
-                                    onClick={handleSave}
-                                    className='controlBtn save'>
-                                    <FiSave /> Save
-                                </button>
-                            }
+
                         </div>
                     </div>
                 ))}

@@ -1,9 +1,15 @@
+import { useEffect } from "react"
 import Pagination from "./Pagination"
 
-const AllRecords = ({ recordsToShow, fetchIndividualRecord, setShowModal, setStartIndex, setEndIndex, startIndex, endIndex, allRecordsLength }) => {
+const AllRecords = ({ fetchAllRecords, recordsToShow, fetchIndividualRecord, setShowModal, setStartIndex, setEndIndex, startIndex, endIndex, allRecordsLength, setShowMsg }) => {
+
+    useEffect(() => {
+        fetchAllRecords()
+    }, [])
 
     const handleRecordClicked = (e) => {
         fetchIndividualRecord(e.currentTarget.id)
+        setShowMsg(false)
         setShowModal(true)
     }
 

@@ -28,10 +28,6 @@ const App = () => {
   const [endIndex, setEndIndex] = useState(10);
 
   useEffect(() => {
-    fetchAllRecords()
-  }, [])
-
-  useEffect(() => {
     updateRecordsDisplay();
   }, [allRecordsData, startIndex, endIndex])
 
@@ -102,6 +98,7 @@ const App = () => {
         <Route path='/all-records'
           element={
             <AllRecords
+              fetchAllRecords={fetchAllRecords}
               recordsToShow={recordsToShow}
               fetchIndividualRecord={fetchIndividualRecord}
               setShowModal={setShowModal}
@@ -110,6 +107,7 @@ const App = () => {
               endIndex={endIndex}
               setEndIndex={setEndIndex}
               allRecordsLength={allRecordsData.length}
+              setShowMsg={setShowMsg}
             />} />
 
         <Route path="/about" element={<About />} />
