@@ -245,6 +245,9 @@ button:hover {
 
 .home-about--Container {
   padding: 1rem;
+  margin-top: 1rem;
+  max-width: 80%;
+  align-self: center;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 5px;
@@ -264,7 +267,9 @@ button:hover {
 }
 
 .pageControlsContainer button {
-  min-width: 10dvw;
+  min-width: 10%;
+  /* min-height: 30px; */
+  padding: .5rem;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 5px;

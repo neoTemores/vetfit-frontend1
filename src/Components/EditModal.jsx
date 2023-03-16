@@ -19,7 +19,7 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
         // SHOULD WE VALIDATE DELETION ? CREATE NEW STATE AND RENDER NEW CONTROL BUTTONS YES/NO
 
         setAllRecordsData(prevData => { return prevData.filter(elem => +elem.id !== +e.target.dataset.id) })
-        deleteRecord(e.target.dataset.id)
+        deleteRecord(e.currentTarget.dataset.id)
         setShowModal(false)
     }
 
