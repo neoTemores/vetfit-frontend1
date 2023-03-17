@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div className='navbarContainer'>
-            <div>
+            <div className='titleContainer'>
                 <h2 className="headerTitle">Application Title</h2>
             </div>
 
