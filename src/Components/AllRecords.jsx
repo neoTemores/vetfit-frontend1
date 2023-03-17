@@ -27,13 +27,15 @@ const AllRecords = ({ fetchAllRecords, recordsToShow, fetchIndividualRecord, set
         <div className='allRecordsContainer'>
             {createPagination()}
 
-            {recordsToShow.map(elem => (
-                <div className='recordCard' key={elem.id} id={elem.id} onClick={handleRecordClicked}>
-                    <h3 className="recordTitle">{elem.title}</h3>
-                    <p className="recordBody">{elem.body}</p>
-                    <span>By user# {elem.userId}, Record id: {elem.id}</span>
-                </div>
-            ))}
+            <div className="allRecordsDisplay">
+                {recordsToShow.map(elem => (
+                    <div className='recordCard' key={elem.id} id={elem.id} onClick={handleRecordClicked}>
+                        <h3 className="recordTitle">{elem.title}</h3>
+                        <p className="recordBody">{elem.body}</p>
+                        <div className="cardDataInfo">By user# {elem.userId}, Record id: {elem.id}</div>
+                    </div>
+                ))}
+            </div>
 
             {createPagination()}
         </div>

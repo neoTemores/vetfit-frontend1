@@ -20,7 +20,7 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
 
     const handleDelete = (e) => {
 
-        setAllRecordsData(prevData => { return prevData.filter(elem => +elem.id !== +e.target.dataset.id) })
+        setAllRecordsData(prevData => { return prevData.filter(elem => +elem.id !== +e.currentTarget.dataset.id) })
         deleteRecord(e.currentTarget.dataset.id)
         setShowModal(false)
     }

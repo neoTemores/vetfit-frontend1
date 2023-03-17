@@ -1,4 +1,4 @@
-import { FiEdit, FiMinusCircle, FiTrash2, FiCheck } from 'react-icons/fi'
+import { FiMinusCircle, FiTrash2 } from 'react-icons/fi'
 
 const EditModalVerifyDelete = ({ elem, cancelDelete, handleDelete }) => {
     return (

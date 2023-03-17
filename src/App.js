@@ -2,7 +2,6 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Home from './Components/Home'
-import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 import AllRecords from './Components/AllRecords'
 import About from './Components/About'
@@ -79,7 +78,7 @@ const App = () => {
 
   return (
     <div className="appContainer">
-      <Header />
+      {/* <Header /> */}
       <Navbar />
 
       {showMsg && <div className='updateMsgContainer'><h3>{msgText}</h3></div>}

@@ -18,9 +18,16 @@ const Navbar = () => {
 
     return (
         <div className='navbarContainer'>
-            <Link className='navLink' id="/" to="/">Home</Link>
-            <Link className='navLink' id="/all-records" to="/all-records">View All Records</Link>
-            <Link className='navLink' id="/about" to="/about">About</Link>
+            <div>
+                <h2 className="headerTitle">Application Title</h2>
+            </div>
+
+            <div className='linksContainer'>
+                <Link className='navLink' id="/" to="/">Home</Link>
+                <Link className='navLink' id="/all-records" to="/all-records">View All Records</Link>
+                <Link className='navLink' id="/about" to="/about">About</Link>
+            </div>
+
         </div>
     )
 }
