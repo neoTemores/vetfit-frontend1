@@ -168,6 +168,7 @@ button:hover {
 .headerTitle {
   color: #eee;
   user-select: none;
+  text-shadow: 1px 1px 2px black;
 }
 
 .navbarContainer {
@@ -289,6 +290,11 @@ button:hover {
   border-radius: 5px;
   box-shadow: 5px 5px 5px #111;
   background-color: rgba(255, 255, 255, .8);
+}
+
+.home-about--Content h2 {
+  color: rgba(0, 0, 255);
+  text-shadow: 1px 1px black;
 }
 
 .home-about--Content>p {
