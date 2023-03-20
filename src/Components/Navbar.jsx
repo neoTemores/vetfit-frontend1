@@ -24,7 +24,7 @@ const Navbar = () => {
 
             <div className='linksContainer'>
                 <Link className='navLink' id="/" to="/">Home</Link>
-                <Link className='navLink' id="/all-records" to="/all-records">View Records</Link>
+                <Link className='navLink' id="/all-records" to="/all-records">Records</Link>
                 <Link className='navLink' id="/about" to="/about">About</Link>
             </div>
 

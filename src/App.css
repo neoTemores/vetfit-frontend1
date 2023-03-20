@@ -191,7 +191,7 @@ button:hover {
   align-items: flex-end;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 720px) {
   .linksContainer {
     margin-right: auto;
   }
