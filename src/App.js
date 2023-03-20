@@ -62,7 +62,6 @@ const App = () => {
     }
 
     const res = await fetch(URL.PATCH + id, patchReq)
-
     updateRecordsDisplay()
     res.ok && displayMsg(`Successfully Updated Record # ${id}`)
   }
@@ -78,7 +77,6 @@ const App = () => {
 
   return (
     <div className="appContainer">
-      {/* <Header /> */}
       <Navbar />
 
       {showMsg && <div className='updateMsgContainer'><h3>{msgText}</h3></div>}
