@@ -215,7 +215,7 @@ button:hover {
 
 .activeLink {
   opacity: 1;
-  border-bottom: 1px solid white;
+  border-bottom: 4px solid white;
 }
 
 .allRecordsContainer {
