@@ -8,7 +8,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./Assets/usaa6.jpeg");
+  background-image: url("./Assets/usaa8.jpeg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -172,9 +172,7 @@ button:hover {
 }
 
 .navbarContainer {
-  background-color: rgba(0, 0, 255, .5);
-  background-color: rgb(166, 3, 17, .75);
-  background-color: rgb(217, 192, 145, .8);
+  background-color: rgb(183, 189, 189, .75);
   /* background-color: #61541C; */
   border-radius: 5px;
   box-shadow: 5px 5px 5px #111;
@@ -296,7 +294,7 @@ button:hover {
 }
 
 .home-about--Content h2 {
-  color: #8A8C49;
+  color: #b7bdbdba;
   text-shadow: 1px 1px black;
 }
 
