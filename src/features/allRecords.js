@@ -49,7 +49,6 @@ export const allRecordsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchAllRecords.fulfilled, (state, action) => {
-                state.status = 'idle';
                 state.value = action.payload;
             })
             .addCase(deleteOneRecord.fulfilled, (state, action) => {
