@@ -8,7 +8,7 @@ import { fetchIndividualRecord } from "../features/individualRecord"
 
 const AllRecords = () => {
     const dispatch = useDispatch();
-    const recordsToShow = useSelector(state => state.recordsToShow.value);
+    const recordsToDisplay = useSelector(state => state.recordsToDisplay.value);
 
     useEffect(() => {
         dispatch(fetchAllRecords())
@@ -25,7 +25,7 @@ const AllRecords = () => {
             <Pagination />
 
             <div className="allRecordsDisplay">
-                {recordsToShow.map(elem => (
+                {recordsToDisplay.map(elem => (
                     <div className='recordCard' key={elem.id} id={elem.id} onClick={handleRecordClicked}>
                         <h3 className="recordTitle">{elem.title}</h3>
                         <p className="recordBody">{elem.body}</p>

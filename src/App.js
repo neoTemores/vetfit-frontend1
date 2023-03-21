@@ -7,7 +7,7 @@ import AllRecords from './Components/AllRecords'
 import About from './Components/About'
 import EditModal from './Components/EditModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { setRecordsToShow } from './features/recordsToShow'
+import { setRecordsToDisplay } from './features/recordsToDisplay'
 
 export const URL = {
   "FETCH_ALL": "https://jsonplaceholder.typicode.com/posts",
@@ -30,7 +30,7 @@ const App = () => {
   }, [startIndex, endIndex, allRecords])
 
   const updateRecordsDisplay = () => {
-    dispatch(setRecordsToShow(allRecords.slice(startIndex, endIndex)))
+    dispatch(setRecordsToDisplay(allRecords.slice(startIndex, endIndex)))
   }
 
   return (
