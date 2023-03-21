@@ -8,7 +8,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./Assets/usaa8.jpeg");
+  background-image: url("./Assets/usaa2.jpeg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -172,8 +172,7 @@ button:hover {
 }
 
 .navbarContainer {
-  background-color: rgb(183, 189, 189, .75);
-  /* background-color: #61541C; */
+  background-color: rgba(184, 134, 11, 0.50);
   border-radius: 5px;
   box-shadow: 5px 5px 5px #111;
   display: flex;
@@ -216,7 +215,7 @@ button:hover {
 
 .activeLink {
   opacity: 1;
-  border-bottom: 4px solid white;
+  border-bottom: 4px solid darkgoldenrod;
 }
 
 .allRecordsContainer {
@@ -294,7 +293,7 @@ button:hover {
 }
 
 .home-about--Content h2 {
-  color: #b7bdbdba;
+  color: darkgoldenrod;
   text-shadow: 1px 1px black;
 }
 
