@@ -1,10 +1,18 @@
 import { GrPrevious, GrNext } from "react-icons/gr"
+import { useDispatch, useSelector } from "react-redux"
+import { setStartIndex } from "../features/startIndex"
+import { setEndIndex } from "../features/endIndex"
 
-const Pagination = ({ setStartIndex, setEndIndex, startIndex, endIndex, allRecordsLength }) => {
+const Pagination = () => {
+    const dispatch = useDispatch();
+    const startIndex = useSelector(state => state.startIndex.value);
+    const endIndex = useSelector(state => state.endIndex.value)
+    const allRecords = useSelector(state => state.allRecords.value)
+
 
     const handleChangePage = (direction) => {
-        setStartIndex(prevStart => { return prevStart += direction })
-        setEndIndex(prevEnd => { return prevEnd += direction })
+        dispatch(setStartIndex(direction))
+        dispatch(setEndIndex(direction))
         window.scroll(0, 0)
     }
 
@@ -18,7 +26,7 @@ const Pagination = ({ setStartIndex, setEndIndex, startIndex, endIndex, allRecor
                     <GrPrevious /> Prev
                 </button>
             }
-            {endIndex < allRecordsLength &&
+            {endIndex < allRecords.length &&
                 <button
                     className="pageNextBtn"
                     onClick={() => handleChangePage(10)}>

@@ -1,45 +1,39 @@
-import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import { useState, useEffect } from 'react'
 import { FiX } from 'react-icons/fi'
 import EditModalControls from './EditModalControls';
 import EditModalVerifyDelete from './EditModalVerifyDelete';
+import { useDispatch, useSelector } from 'react-redux';
+import { setShowModal } from '../features/showModal';
+import { setMsgTxt } from "../features/msgText";
+import { setShowMsg } from "../features/showMsg";
 
-const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patchRecord, deleteRecord }) => {
+const EditModal = () => {
+    const dispatch = useDispatch();
+    const individualRecord = useSelector(state => state.individualRecord.value)
 
-    const [editData, setEditData] = useState({ "title": "", "body": "" })
+    const [editData, setEditData] = useState({ "id": 0, "title": "", "body": "" })
     const [editing, setEditing] = useState(false)
     const [verifyDelete, setVerifyDelete] = useState(false)
 
     useEffect(() => {
-        individualRecordData.length > 0 &&
+        individualRecord.length > 0 &&
             setEditData({
-                "title": individualRecordData[0].title,
-                "body": individualRecordData[0].body
+                "id": individualRecord[0].id,
+                "title": individualRecord[0].title,
+                "body": individualRecord[0].body
             })
-    }, [individualRecordData])
+    }, [individualRecord])
 
-    const handleDelete = (e) => {
-
-        setAllRecordsData(prevData => { return prevData.filter(elem => +elem.id !== +e.currentTarget.dataset.id) })
-        deleteRecord(e.currentTarget.dataset.id)
-        setShowModal(false)
+    const displayMsg = (text) => {
+        window.scroll(0, 0)
+        dispatch(setMsgTxt(text))
+        dispatch(setShowMsg(true))
+        setTimeout(() => {
+            dispatch(setShowMsg(false))
+        }, 3000)
     }
 
-    const handleSave = (e) => {
-
-        setAllRecordsData(prevData => {
-            prevData.forEach(elem => {
-                if (+elem.id === +e.currentTarget.dataset.id) {
-                    elem.title = editData.title
-                    elem.body = editData.body
-                }
-            })
-            return prevData
-        })
-
-        patchRecord(e.currentTarget.dataset.id, editData)
-        setShowModal(false)
-    }
     const handleChange = (e) => {
         setEditData(prevData => { return { ...prevData, [e.target.name]: e.target.value } })
     }
@@ -50,13 +44,13 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
             <div className='modal'>
                 <button
                     className="closeModalBtn"
-                    onClick={() => setShowModal(false)}>
+                    onClick={() => dispatch(setShowModal(false))}>
                     <FiX style={{ "fontSize": "1.2rem" }} />
                 </button>
 
-                {individualRecordData.length === 0 && <h1>Loading ...</h1>}
+                {individualRecord.length === 0 && <h1>Loading ...</h1>}
 
-                {individualRecordData.map(elem => (
+                {individualRecord.map(elem => (
                     <div className='individualCard' key={elem.id} id={elem.userId}>
 
                         {editing ?
@@ -81,7 +75,7 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
                             <p className="recordBody">{editData.body}</p>
                         }
 
-                        <span>By User: {elem.userId}, Record Id: {elem.id}</span>
+                        <span>Record id: {elem.id}</span>
 
                         {verifyDelete && <span className='verifyDeleteMsg'>Delete this record?</span>}
                         <div className='editControlsContainer'>
@@ -90,7 +84,8 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
                                 <EditModalVerifyDelete
                                     elem={elem}
                                     cancelDelete={() => setVerifyDelete(false)}
-                                    handleDelete={handleDelete}
+                                    editData={editData}
+                                    displayMsg={displayMsg}
                                 />
                                 :
                                 <EditModalControls
@@ -98,10 +93,9 @@ const EditModal = ({ setShowModal, individualRecordData, setAllRecordsData, patc
                                     editing={editing}
                                     setEditing={setEditing}
                                     toggleDelete={() => setVerifyDelete(true)}
-                                    handleSave={handleSave} />
+                                    editData={editData}
+                                    displayMsg={displayMsg} />
                             }
-
-
 
                         </div>
                     </div>

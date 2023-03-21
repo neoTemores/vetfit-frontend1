@@ -1,7 +1,21 @@
 import { FiEdit, FiSave, FiTrash2, FiCheck } from 'react-icons/fi'
+import { useDispatch } from 'react-redux'
+import { patchOneRecord } from '../features/allRecords';
+import { setShowModal } from '../features/showModal';
 
-const EditModalControls = ({ elem, editing, setEditing, toggleDelete, handleSave }) => {
+const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, displayMsg }) => {
+    const dispatch = useDispatch();
 
+    const handleSave = () => {
+        const prompise = dispatch(patchOneRecord(editData))
+        prompise.then(val => {
+            val.payload.status === 200 ?
+                displayMsg(`Successfully Saved Record # ${val.payload.patch.id}`)
+                :
+                displayMsg(`Error! status: ${val.payload.status}`)
+        })
+        dispatch(setShowModal(false))
+    }
     return (<>
         {!editing &&
             <button

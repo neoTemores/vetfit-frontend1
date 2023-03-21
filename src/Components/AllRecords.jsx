@@ -1,43 +1,40 @@
 import { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import Pagination from "./Pagination"
+import { setShowModal } from "../features/showModal"
+import { setShowMsg } from "../features/showMsg"
+import { fetchAllRecords } from "../features/allRecords"
+import { fetchIndividualRecord } from "../features/individualRecord"
 
-const AllRecords = ({ fetchAllRecords, recordsToShow, fetchIndividualRecord, setShowModal, setStartIndex, setEndIndex, startIndex, endIndex, allRecordsLength, setShowMsg }) => {
+const AllRecords = () => {
+    const dispatch = useDispatch();
+    const recordsToShow = useSelector(state => state.recordsToShow.value);
 
     useEffect(() => {
-        fetchAllRecords()
+        dispatch(fetchAllRecords())
     }, [])
 
     const handleRecordClicked = (e) => {
-        fetchIndividualRecord(e.currentTarget.id)
-        setShowMsg(false)
-        setShowModal(true)
-    }
-
-    const createPagination = () => {
-        return <Pagination
-            setStartIndex={setStartIndex}
-            setEndIndex={setEndIndex}
-            endIndex={endIndex}
-            startIndex={startIndex}
-            allRecordsData={recordsToShow}
-            allRecordsLength={allRecordsLength} />
+        dispatch(fetchIndividualRecord(e.currentTarget.id))
+        dispatch(setShowMsg(false))
+        dispatch(setShowModal(true))
     }
 
     return (
         <div className='allRecordsContainer'>
-            {createPagination()}
+            <Pagination />
 
             <div className="allRecordsDisplay">
                 {recordsToShow.map(elem => (
                     <div className='recordCard' key={elem.id} id={elem.id} onClick={handleRecordClicked}>
                         <h3 className="recordTitle">{elem.title}</h3>
                         <p className="recordBody">{elem.body}</p>
-                        <div className="cardDataInfo">By user# {elem.userId}, Record id: {elem.id}</div>
+                        <div className="cardDataInfo">Record id: {elem.id}</div>
                     </div>
                 ))}
             </div>
 
-            {createPagination()}
+            <Pagination />
         </div>
     )
 }
