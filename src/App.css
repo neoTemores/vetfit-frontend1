@@ -229,7 +229,7 @@ button:hover {
 }
 
 .updateMsgContainer>h3 {
-  color: darkgreen;
+  color: darkblue;
   background-color: rgba(255, 255, 255, .8);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
