@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
   font-family: Georgia, sans-serif;
 }
 
@@ -9,12 +8,12 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./Assets/usaa1.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #333;
-  background-color: whitesmoke;
+  padding: 1rem 2rem;
 }
 
 button:hover {
@@ -37,13 +36,14 @@ button:hover {
 .modal {
   color: #333;
   z-index: 10;
-  background-color: #fff;
+  background-color: #eee;
   text-align: center;
   max-width: 70%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
   position: relative;
   animation: animate 0.3s;
   padding: 1rem 0rem;
@@ -88,7 +88,7 @@ button:hover {
   border-radius: 5px;
   padding: .25rem;
   border: none;
-  background: inherit;
+  background: #eee;
   outline-color: #aaa;
 }
 
@@ -125,16 +125,17 @@ button:hover {
   font-weight: bold;
   font-size: 1.1rem;
   width: 200px;
-  height: 40px;
+  height: 50px;
   border-radius: 999px;
   border: none;
-  box-shadow: 2px 2px 4px #111;
+  box-shadow: 5px 5px 5px #111;
   transition: all .2s ease-in-out;
   opacity: .7;
 }
 
 .controlBtn.delete {
   background-color: darkred;
+
 }
 
 .controlBtn.edit {
@@ -158,41 +159,46 @@ button:hover {
 
 .appContainer {
   text-align: center;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-areas:
-    "nav content"
-    "nav content";
-  column-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
+
 .headerTitle {
+  color: #eee;
   user-select: none;
+  text-shadow: 1px 1px 2px black;
 }
 
 .navbarContainer {
-  grid-area: nav;
-  color: whitesmoke;
+  background-color: rgba(0, 0, 255, .5);
+  background-color: rgb(87, 86, 140, .5);
+  /* background-color: #61541C; */
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
   display: flex;
-  gap: 4rem;
+  gap: 1rem;
   justify-content: center;
-  align-content: flex-start;
-  padding: .5rem;
+  align-items: center;
+  padding: .5rem 1rem;
   font-size: 1.5rem;
   flex-wrap: wrap;
 }
 
-.titleContainer {
-  height: fit-content;
-}
-
 .linksContainer {
   display: flex;
-  flex-direction: column;
   gap: 2rem;
+  margin-left: auto;
+  align-items: flex-end;
 }
+
+@media (max-width: 720px) {
+  .linksContainer {
+    margin-right: auto;
+  }
+}
+
 
 .zindex0 {
   z-index: 0;
@@ -200,7 +206,7 @@ button:hover {
 
 .navLink {
   text-decoration: none;
-  color: whitesmoke;
+  color: white;
   opacity: .5;
 }
 
@@ -211,12 +217,11 @@ button:hover {
 
 .activeLink {
   opacity: 1;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-bottom: 4px solid white;
 }
 
 .allRecordsContainer {
-  padding: 0rem 2rem;
+  padding: 0rem 1rem;
 }
 
 .allRecordsDisplay {
@@ -225,14 +230,13 @@ button:hover {
   gap: 1rem;
 }
 
-.updateMsgContainer {
-  margin-top: 1rem;
-}
-
 .updateMsgContainer>h3 {
   color: darkgreen;
-  border-radius: 2px;
-  box-shadow: 2px 2px 4px #111;
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
   padding: 1rem;
   max-width: fit-content;
   margin: auto;
@@ -241,8 +245,12 @@ button:hover {
 
 .recordCard {
   position: relative;
+  background-color: rgba(255, 255, 255, .4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
   transition: all .2s ease-in-out;
-  padding: 1rem;
 }
 
 .cardDataInfo {
@@ -252,34 +260,44 @@ button:hover {
   right: 0;
 }
 
+.recordCard:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .8);
+  color: #333
+}
+
 .recordTitle {
-  margin-bottom: .5rem;
+  padding: .5rem;
 }
 
 .recordBody {
   text-align: left;
+  padding: 1rem;
   margin-bottom: 1rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .allRecordsDisplay {
     grid-template-columns: 1fr;
   }
 }
 
 .home-about--Container {
-  grid-area: content;
-  justify-self: center;
-  padding: 4rem 0rem;
+  padding: 1rem;
+  margin-top: 1rem;
   max-width: 80%;
-  align-self: top;
-  height: 100vh;
-  border-radius: 2px;
+  align-self: center;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  background-color: rgba(255, 255, 255, .8);
 }
 
-.home-about--Content {
-  background-color: #fff;
-  padding: 1rem;
+.home-about--Content h2 {
+  color: rgba(0, 0, 255);
+  color: rgb(87, 86, 140);
+  /* text-shadow: 1px 1px black; */
 }
 
 .home-about--Content>p {
@@ -296,18 +314,20 @@ button:hover {
 }
 
 .pageControlsContainer button {
-  background-color: inherit;
-  color: inherit;
   min-width: 10%;
+  /* min-height: 30px; */
   padding: .5rem;
-  border-radius: 2px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #111;
+  background-color: rgba(255, 255, 255, .8);
+  opacity: .75;
   transition: all .2s ease-in-out;
 }
 
-.recordCard:hover,
 .pageControlsContainer button:hover {
-  cursor: pointer;
-  background-color: #fff;
+  opacity: 1;
 }
 
 .pageControlsContainer button svg {
@@ -318,59 +338,6 @@ button:hover {
   margin-left: auto;
 }
 
-
-/* THEME STYLES */
-/* ============================ */
-
-:root {
-  /* color: dark; */
-  --main-color: darkgreen;
-  --comp-color: #4A0563;
-  --hover-color: #00B000;
-}
-
-.navbarContainer {
-  background-color: var(--main-color);
-}
-
-.activeLink {
-  opacity: 1;
-  border-bottom: 4px solid var(--comp-color);
-}
-
-.recordCard,
-.home-about--Content,
-.modal {
-  border-left: 10px solid var(--main-color);
-  box-shadow: 2px 2px 4px black;
-  border-radius: 10px;
-}
-
-.modal {
-  border-left: 10px solid var(--comp-color);
-
-}
-
-.recordCard:hover {
-  /* border: 2px solid var(--hover-color); */
-  border-left: 10px solid var(--comp-color);
-}
-
-.home-about--Content h2,
-.updateMsgContainer>h3 {
-  color: var(--main-color)
-}
-
-.updateMsgContainer>h3,
-.pageControlsContainer button {
-  border: 2px solid var(--main-color);
-}
-
-.pageControlsContainer button:hover {
-  border: 2px solid var(--comp-color);
-}
-
-/* ============================ */
 
 @keyframes animate {
   from {
