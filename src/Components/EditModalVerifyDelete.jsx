@@ -9,10 +9,13 @@ const EditModalVerifyDelete = ({ elem, cancelDelete, editData, displayMsg }) => 
     const handleDelete = async () => {
         const promise = Promise.resolve(dispatch(deleteOneRecord(editData.id)))
         promise.then(val => {
-            val.payload.status === 200 ?
-                displayMsg(`Successfully Deleted Record # ${val.payload.id}`)
-                :
-                displayMsg(`Error! status: ${val.payload.status}`)
+            if (val.payload) {
+                val.payload.status === 200 ?
+                    displayMsg(`Successfully Deleted Record # ${val.payload.id}`)
+                    :
+                    displayMsg(`Error! status: ${val.payload.status}`)
+            }
+            else displayMsg("Error! Request rejected")
         })
         dispatch(setShowModal(false))
     }

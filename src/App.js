@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Home from './Components/Home'
 import Navbar from './Components/Navbar'
 import AllRecords from './Components/AllRecords'
@@ -8,12 +8,15 @@ import About from './Components/About'
 import EditModal from './Components/EditModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { setRecordsToDisplay } from './features/recordsToDisplay'
+import NewRecordModal from './Components/NewRecordModal'
 
 export const URL = {
-  "FETCH_ALL": "https://jsonplaceholder.typicode.com/posts",
-  "FETCH_ONE": "https://jsonplaceholder.typicode.com/posts/",
-  "DELETE": "https://jsonplaceholder.typicode.com/posts/",
-  "PATCH": "https://jsonplaceholder.typicode.com/posts/"
+  "LIST_NAME": "recordList",
+  "FETCH_ALL": "http://localhost:8080/api/records",
+  "FETCH_ONE": "http://localhost:8080/api/records/",
+  "POST": "http://localhost:8080/api/records/add",
+  "PATCH": "http://localhost:8080/api/records/update/",
+  "DELETE": "http://localhost:8080/api/records/delete/"
 }
 
 const App = () => {
@@ -24,6 +27,7 @@ const App = () => {
   const showModal = useSelector(state => state.showModal.value)
   const showMsg = useSelector(state => state.showMsg.value)
   const msgText = useSelector(state => state.msgText.value)
+  const showNewRecordModal = useSelector(state => state.showNewRecordModal.value)
 
   useEffect(() => {
     updateRecordsDisplay();
@@ -38,6 +42,7 @@ const App = () => {
       <Navbar />
       {showMsg && <div className='updateMsgContainer'><h3>{msgText}</h3></div>}
       {showModal && <EditModal />}
+      {showNewRecordModal && <NewRecordModal />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/all-records' element={<AllRecords />} />
