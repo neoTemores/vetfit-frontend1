@@ -5,6 +5,7 @@ import { setShowModal } from "../features/showModal"
 import { setShowMsg } from "../features/showMsg"
 import { fetchAllRecords } from "../features/allRecords"
 import { fetchIndividualRecord } from "../features/individualRecord"
+import { setShowNewRecordModal } from "../features/showNewRecordModal"
 
 const AllRecords = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const AllRecords = () => {
     return (
         <div className='allRecordsContainer'>
             <Pagination />
-
+            <button className="addRecordBtn" onClick={() => dispatch(setShowNewRecordModal(true))}>Create Record</button>
             <div className="allRecordsDisplay">
                 {recordsToDisplay.map(elem => (
                     <div className='recordCard' key={elem.id} id={elem.id} onClick={handleRecordClicked}>
