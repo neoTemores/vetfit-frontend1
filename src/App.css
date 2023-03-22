@@ -38,11 +38,13 @@ button:hover {
   color: #333;
   z-index: 10;
   background-color: #fff;
+  background-color: #fff;
   text-align: center;
   max-width: 70%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 2px;
   border-radius: 2px;
   position: relative;
   animation: animate 0.3s;
@@ -89,6 +91,7 @@ button:hover {
   padding: .25rem;
   border: none;
   background: inherit;
+  background: inherit;
   outline-color: #aaa;
 }
 
@@ -126,8 +129,10 @@ button:hover {
   font-size: 1.1rem;
   width: 200px;
   height: 40px;
+  height: 40px;
   border-radius: 999px;
   border: none;
+  box-shadow: 2px 2px 4px #111;
   box-shadow: 2px 2px 4px #111;
   transition: all .2s ease-in-out;
   opacity: .7;
@@ -160,6 +165,8 @@ button:hover {
   text-align: center;
   padding: 0;
   margin: 0;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -172,10 +179,12 @@ button:hover {
 
 .navbarContainer {
   color: whitesmoke;
+  color: whitesmoke;
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  padding: 1rem 1rem;
   padding: 1rem 1rem;
   font-size: 1.5rem;
   flex-wrap: wrap;
@@ -189,189 +198,202 @@ button:hover {
 }
 
 @media (max-width: 655px) {
-  .linksContainer {
-    margin-right: auto;
+  @media (max-width: 655px) {
+    .linksContainer {
+      margin-right: auto;
+    }
   }
-}
 
-.zindex0 {
-  z-index: 0;
-}
+  .zindex0 {
+    z-index: 0;
+  }
 
-.navLink {
-  text-decoration: none;
-  color: whitesmoke;
-  opacity: .5;
-}
+  .navLink {
+    text-decoration: none;
+    color: whitesmoke;
+    color: whitesmoke;
+    opacity: .5;
+  }
 
-.navLink:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
+  .navLink:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
 
-.activeLink {
-  opacity: 1;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
+  .activeLink {
+    opacity: 1;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 
-.allRecordsContainer {
-  padding: 0rem 2rem;
-}
+  .allRecordsContainer {
+    padding: 0rem 2rem;
+    padding: 0rem 2rem;
+  }
 
-.allRecordsDisplay {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.updateMsgContainer>h3 {
-  color: darkgreen;
-  border-radius: 2px;
-  box-shadow: 2px 2px 4px #111;
-  padding: 1rem;
-  max-width: fit-content;
-  margin: auto;
-  animation: animate .5s;
-}
-
-.recordCard {
-  position: relative;
-  transition: all .2s ease-in-out;
-  padding: 1rem;
-}
-
-.cardDataInfo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.recordTitle {
-  margin-bottom: .5rem;
-}
-
-.recordBody {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 700px) {
   .allRecordsDisplay {
-    grid-template-columns: 1fr;
-  }
-}
-
-.home-about--Container {
-  padding: 1rem;
-  margin-top: 1rem;
-  max-width: 80%;
-  align-self: center;
-  border-radius: 2px;
-  background-color: #fff;
-}
-
-.home-about--Content>p {
-  text-align: left;
-  margin-top: .5rem;
-  text-indent: 1rem;
-}
-
-.pageControlsContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.pageControlsContainer button,
-.addRecordBtn {
-  background-color: inherit;
-  color: inherit;
-  min-width: 10%;
-  padding: .5rem;
-  border-radius: 2px;
-  transition: all .2s ease-in-out;
-}
-
-.recordCard:hover,
-.pageControlsContainer button:hover,
-.addRecordBtn {
-  cursor: pointer;
-  background-color: #fff;
-}
-
-.pageControlsContainer button svg {
-  padding-top: 4px;
-}
-
-.pageNextBtn {
-  margin-left: auto;
-}
-
-
-/* THEME STYLES */
-/* ============================ */
-
-:root {
-  /* color: CBD916; */
-  --main-color: darkblue;
-  --comp-color: #D98E16;
-  --hover-color: #1616D9;
-}
-
-.navbarContainer {
-  background-color: var(--main-color);
-}
-
-.activeLink {
-  opacity: 1;
-  border-bottom: 4px solid var(--comp-color);
-}
-
-.modal,
-.recordCard,
-.home-about--Container {
-  border-left: 10px solid var(--main-color);
-  box-shadow: 2px 2px 4px black;
-  border-radius: 10px;
-}
-
-.recordCard:hover {
-  border-left: 10px solid var(--comp-color);
-}
-
-.home-about--Content h2,
-.updateMsgContainer>h3 {
-  color: var(--main-color)
-}
-
-.updateMsgContainer>h3,
-.pageControlsContainer button,
-.addRecordBtn {
-  border: 2px solid var(--main-color);
-}
-
-.pageControlsContainer button:hover,
-.addRecordBtn:hover {
-  border: 2px solid var(--comp-color);
-}
-
-.addRecordBtn {
-  margin-bottom: 1rem;
-  width: 25%;
-  font-weight: bold;
-}
-
-/* ============================ */
-
-@keyframes animate {
-  from {
-    transform: scale(0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
-  to {
-    transform: scale(1);
+  .updateMsgContainer>h3 {
+    color: darkgreen;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #111;
+    color: darkgreen;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #111;
+    padding: 1rem;
+    max-width: fit-content;
+    margin: auto;
+    animation: animate .5s;
   }
-}
+
+  .recordCard {
+    position: relative;
+    transition: all .2s ease-in-out;
+    padding: 1rem;
+    padding: 1rem;
+  }
+
+  .cardDataInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .recordTitle {
+    margin-bottom: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  .recordBody {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 700px) {
+    .allRecordsDisplay {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .home-about--Container {
+    padding: 1rem;
+    margin-top: 1rem;
+    max-width: 80%;
+    align-self: center;
+    border-radius: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+
+  .home-about--Content>p {
+    text-align: left;
+    margin-top: .5rem;
+    text-indent: 1rem;
+  }
+
+  .pageControlsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pageControlsContainer button,
+  .addRecordBtn {
+    background-color: inherit;
+    color: inherit;
+    min-width: 10%;
+    padding: .5rem;
+    border-radius: 2px;
+    border-radius: 2px;
+    transition: all .2s ease-in-out;
+  }
+
+  .recordCard:hover,
+  .pageControlsContainer button:hover,
+  .addRecordBtn {
+    cursor: pointer;
+    background-color: #fff;
+  }
+
+  .pageControlsContainer button svg {
+    padding-top: 4px;
+  }
+
+  .pageNextBtn {
+    margin-left: auto;
+  }
+
+
+  /* THEME STYLES */
+  /* ============================ */
+
+  :root {
+    /* color: CBD916; */
+    --main-color: darkblue;
+    --comp-color: #D98E16;
+    --hover-color: #1616D9;
+  }
+
+  .navbarContainer {
+    background-color: var(--main-color);
+  }
+
+  .activeLink {
+    opacity: 1;
+    border-bottom: 4px solid var(--comp-color);
+  }
+
+  .modal,
+  .recordCard,
+  .home-about--Container {
+    border-left: 10px solid var(--main-color);
+    box-shadow: 2px 2px 4px black;
+    border-radius: 10px;
+  }
+
+  .recordCard:hover {
+    border-left: 10px solid var(--comp-color);
+  }
+
+  .home-about--Content h2,
+  .updateMsgContainer>h3 {
+    color: var(--main-color)
+  }
+
+  .updateMsgContainer>h3,
+  .pageControlsContainer button,
+  .addRecordBtn {
+    border: 2px solid var(--main-color);
+  }
+
+  .pageControlsContainer button:hover,
+  .addRecordBtn:hover {
+    border: 2px solid var(--comp-color);
+  }
+
+  .addRecordBtn {
+    margin-bottom: 1rem;
+    width: 25%;
+    font-weight: bold;
+  }
+
+  /* ============================ */
+
+  @keyframes animate {
+    from {
+      transform: scale(0.1);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
