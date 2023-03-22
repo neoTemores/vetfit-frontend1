@@ -7,6 +7,7 @@ import individualRecordReducer from '../features/individualRecord';
 import showModalReducer from '../features/showModal';
 import showMsgReducer from '../features/showMsg';
 import msgTextReducer from '../features/msgText';
+import showNewRecordModalReducer from "../features/showNewRecordModal"
 
 export const store = configureStore({
     reducer: {
@@ -18,5 +19,6 @@ export const store = configureStore({
         showModal: showModalReducer,
         showMsg: showMsgReducer,
         msgText: msgTextReducer,
+        showNewRecordModal: showNewRecordModalReducer
     },
 });
