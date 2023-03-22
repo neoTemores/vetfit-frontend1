@@ -1,10 +1,13 @@
 import { FiMinusCircle, FiTrash2 } from 'react-icons/fi'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteOneRecord } from '../features/allRecords'
 import { setShowModal } from '../features/showModal'
+import { setStartIndex } from '../features/startIndex'
+import { setEndIndex } from '../features/endIndex'
 
 const EditModalVerifyDelete = ({ elem, cancelDelete, editData, displayMsg }) => {
     const dispatch = useDispatch();
+    const recordsToDisplay = useSelector(state => state.recordsToDisplay.value);
 
     const handleDelete = async () => {
         const promise = Promise.resolve(dispatch(deleteOneRecord(editData.id)))
@@ -16,8 +19,15 @@ const EditModalVerifyDelete = ({ elem, cancelDelete, editData, displayMsg }) => 
                     displayMsg(`Error! status: ${val.payload.status}`)
             }
             else displayMsg("Error! Request rejected")
+
+            if (recordsToDisplay.length === 1) {
+                dispatch(setStartIndex(-10))
+                dispatch(setEndIndex(-10))
+            }
         })
+
         dispatch(setShowModal(false))
+
     }
     return (
         <>
