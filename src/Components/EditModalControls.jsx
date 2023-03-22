@@ -9,10 +9,14 @@ const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, 
     const handleSave = () => {
         const prompise = dispatch(patchOneRecord(editData))
         prompise.then(val => {
-            val.payload.status === 200 ?
-                displayMsg(`Successfully Saved Record # ${val.payload.patch.id}`)
-                :
-                displayMsg(`Error! status: ${val.payload.status}`)
+            if (val.payload) {
+                val.payload.status == 200 ?
+                    displayMsg(`Successfully Saved Record # ${val.payload.patch.id}`)
+                    :
+                    displayMsg(`Error! status: ${val.payload.status}`)
+            }
+
+            else displayMsg("Error! Request rejected")
         })
         dispatch(setShowModal(false))
     }
