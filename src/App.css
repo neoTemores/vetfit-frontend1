@@ -311,7 +311,8 @@ button:hover {
   margin-top: 1rem;
 }
 
-.pageControlsContainer button {
+.pageControlsContainer button,
+.addRecordBtn {
   min-width: 10%;
   /* min-height: 30px; */
   padding: .5rem;
@@ -324,7 +325,8 @@ button:hover {
   transition: all .2s ease-in-out;
 }
 
-.pageControlsContainer button:hover {
+.pageControlsContainer button:hover,
+.addRecordBtn:hover {
   opacity: 1;
 }
 
@@ -336,6 +338,11 @@ button:hover {
   margin-left: auto;
 }
 
+.addRecordBtn {
+  margin-bottom: 1rem;
+  width: 25%;
+  font-weight: bold;
+}
 
 @keyframes animate {
   from {
