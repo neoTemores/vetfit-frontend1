@@ -6,9 +6,27 @@ export const fetchAllRecords = createAsyncThunk(
     async () => {
         const res = await fetch(URL.FETCH_ALL)
         const data = await res.json();
-        return data;
+        // console.log(data)
+        return data[URL.LIST_NAME].reverse();
     }
 );
+
+export const addNewRecord = createAsyncThunk(
+    'addNewRecord',
+    async (newRecord) => {
+        let postReq = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newRecord)
+        }
+        const res = await fetch(URL.POST, postReq)
+        const data = await res.json();
+        return {
+            "status": res.status,
+            "newRecord": data,
+        }
+    }
+)
 
 export const deleteOneRecord = createAsyncThunk(
     'deleteOneRecord',
@@ -64,6 +82,9 @@ export const allRecordsSlice = createSlice({
                             return;
                         }
                     })
+            })
+            .addCase(addNewRecord.fulfilled, (state, action) => {
+                state.value = [action.payload.newRecord, ...state.value]
             })
     }
 
