@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-family: Georgia, sans-serif;
 }
 
@@ -8,12 +9,12 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./Assets/usaa3.webp");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1rem 2rem;
+  color: #333;
+  background-color: whitesmoke;
 }
 
 button:hover {
@@ -36,14 +37,13 @@ button:hover {
 .modal {
   color: #333;
   z-index: 10;
-  background-color: #eee;
+  background-color: #fff;
   text-align: center;
   max-width: 70%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
+  border-radius: 2px;
   position: relative;
   animation: animate 0.3s;
   padding: 1rem 0rem;
@@ -88,7 +88,7 @@ button:hover {
   border-radius: 5px;
   padding: .25rem;
   border: none;
-  background: #eee;
+  background: inherit;
   outline-color: #aaa;
 }
 
@@ -125,17 +125,16 @@ button:hover {
   font-weight: bold;
   font-size: 1.1rem;
   width: 200px;
-  height: 50px;
+  height: 40px;
   border-radius: 999px;
   border: none;
-  box-shadow: 5px 5px 5px #111;
+  box-shadow: 2px 2px 4px #111;
   transition: all .2s ease-in-out;
   opacity: .7;
 }
 
 .controlBtn.delete {
   background-color: darkred;
-
 }
 
 .controlBtn.edit {
@@ -159,27 +158,25 @@ button:hover {
 
 .appContainer {
   text-align: center;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-
 .headerTitle {
-  color: #eee;
   user-select: none;
   text-shadow: 1px 1px 2px black;
 }
 
 .navbarContainer {
-  background-color: rgba(0, 0, 255, .5);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
+  color: whitesmoke;
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: 1rem 1rem;
   font-size: 1.5rem;
   flex-wrap: wrap;
 }
@@ -191,12 +188,11 @@ button:hover {
   align-items: flex-end;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 655px) {
   .linksContainer {
     margin-right: auto;
   }
 }
-
 
 .zindex0 {
   z-index: 0;
@@ -204,7 +200,7 @@ button:hover {
 
 .navLink {
   text-decoration: none;
-  color: white;
+  color: whitesmoke;
   opacity: .5;
 }
 
@@ -215,11 +211,12 @@ button:hover {
 
 .activeLink {
   opacity: 1;
-  border-bottom: 4px solid white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .allRecordsContainer {
-  padding: 0rem 1rem;
+  padding: 0rem 2rem;
 }
 
 .allRecordsDisplay {
@@ -229,12 +226,9 @@ button:hover {
 }
 
 .updateMsgContainer>h3 {
-  color: darkblue;
-  background-color: rgba(255, 255, 255, .8);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
+  color: darkgreen;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px #111;
   padding: 1rem;
   max-width: fit-content;
   margin: auto;
@@ -243,12 +237,8 @@ button:hover {
 
 .recordCard {
   position: relative;
-  background-color: rgba(255, 255, 255, .4);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
   transition: all .2s ease-in-out;
+  padding: 1rem;
 }
 
 .cardDataInfo {
@@ -258,19 +248,12 @@ button:hover {
   right: 0;
 }
 
-.recordCard:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, .8);
-  color: #333
-}
-
 .recordTitle {
-  padding: .5rem;
+  margin-bottom: .5rem;
 }
 
 .recordBody {
   text-align: left;
-  padding: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -285,16 +268,8 @@ button:hover {
   margin-top: 1rem;
   max-width: 80%;
   align-self: center;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
-  background-color: rgba(255, 255, 255, .8);
-}
-
-.home-about--Content h2 {
-  color: rgba(0, 0, 255);
-  text-shadow: 1px 1px black;
+  border-radius: 2px;
+  background-color: #fff;
 }
 
 .home-about--Content>p {
@@ -312,21 +287,19 @@ button:hover {
 
 .pageControlsContainer button,
 .addRecordBtn {
+  background-color: inherit;
+  color: inherit;
   min-width: 10%;
-  /* min-height: 30px; */
   padding: .5rem;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #111;
-  background-color: rgba(255, 255, 255, .8);
-  opacity: .75;
+  border-radius: 2px;
   transition: all .2s ease-in-out;
 }
 
+.recordCard:hover,
 .pageControlsContainer button:hover,
-.addRecordBtn:hover {
-  opacity: 1;
+.addRecordBtn {
+  cursor: pointer;
+  background-color: #fff;
 }
 
 .pageControlsContainer button svg {
@@ -337,11 +310,61 @@ button:hover {
   margin-left: auto;
 }
 
+
+/* THEME STYLES */
+/* ============================ */
+
+:root {
+  /* color: CBD916; */
+  --main-color: darkblue;
+  --comp-color: #D98E16;
+  --hover-color: #1616D9;
+}
+
+.navbarContainer {
+  background-color: var(--main-color);
+}
+
+.activeLink {
+  opacity: 1;
+  border-bottom: 4px solid var(--comp-color);
+}
+
+.modal,
+.recordCard,
+.home-about--Container {
+  border-left: 10px solid var(--main-color);
+  box-shadow: 2px 2px 4px black;
+  border-radius: 10px;
+}
+
+.recordCard:hover {
+  border-left: 10px solid var(--comp-color);
+}
+
+.home-about--Content h2,
+.updateMsgContainer>h3 {
+  color: var(--main-color)
+}
+
+.updateMsgContainer>h3,
+.pageControlsContainer button,
+.addRecordBtn {
+  border: 2px solid var(--main-color);
+}
+
+.pageControlsContainer button:hover,
+.addRecordBtn:hover {
+  border: 2px solid var(--comp-color);
+}
+
 .addRecordBtn {
   margin-bottom: 1rem;
   width: 25%;
   font-weight: bold;
 }
+
+/* ============================ */
 
 @keyframes animate {
   from {
