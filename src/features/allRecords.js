@@ -7,7 +7,7 @@ export const fetchAllRecords = createAsyncThunk(
         const res = await fetch(URL.FETCH_ALL)
         const data = await res.json();
         // console.log(data)
-        return data[URL.LIST_NAME];
+        return data[URL.LIST_NAME].reverse();
     }
 );
 
@@ -84,7 +84,7 @@ export const allRecordsSlice = createSlice({
                     })
             })
             .addCase(addNewRecord.fulfilled, (state, action) => {
-                state.value = [...state.value, action.payload.newRecord]
+                state.value = [action.payload.newRecord, ...state.value]
             })
     }
 
