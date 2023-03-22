@@ -284,7 +284,8 @@ button:hover {
   margin-top: 1rem;
 }
 
-.pageControlsContainer button {
+.pageControlsContainer button,
+.addRecordBtn {
   background-color: inherit;
   color: inherit;
   min-width: 10%;
@@ -294,7 +295,8 @@ button:hover {
 }
 
 .recordCard:hover,
-.pageControlsContainer button:hover {
+.pageControlsContainer button:hover,
+.addRecordBtn:hover {
   cursor: pointer;
   background-color: #fff;
 }
@@ -307,6 +309,11 @@ button:hover {
   margin-left: auto;
 }
 
+.addRecordBtn {
+  margin-bottom: 1rem;
+  width: 25%;
+  font-weight: bold;
+}
 
 /* THEME STYLES */
 /* ============================ */
@@ -345,11 +352,13 @@ button:hover {
 }
 
 .updateMsgContainer>h3,
-.pageControlsContainer button {
+.pageControlsContainer button,
+.addRecordBtn {
   border: 2px solid var(--main-color);
 }
 
-.pageControlsContainer button:hover {
+.pageControlsContainer button:hover,
+.addRecordBtn:hover {
   border: 2px solid var(--hover-color);
 }
 
