@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { FiEdit, FiSave, FiTrash2, FiCheck } from 'react-icons/fi'
 import { useDispatch } from 'react-redux'
 import { patchOneRecord } from '../features/allRecords';
 import { setShowModal } from '../features/showModal';
 
-const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, displayMsg }) => {
+const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, displayMsg, setShowErrMsg }) => {
     const dispatch = useDispatch();
 
     const handleSave = () => {
+        if (dataIsEmpty()) return setShowErrMsg(true);
+
         const prompise = dispatch(patchOneRecord(editData))
         prompise.then(val => {
             if (val.payload) {
@@ -20,17 +23,34 @@ const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, 
         })
         dispatch(setShowModal(false))
     }
+
+    const dataIsEmpty = () => {
+        for (const key in editData) {
+            editData[key] = editData[key].toString().trim()
+            if (editData[key] === "") return true;
+        }
+        return false;
+    }
+    const handleToggleDelete = () => {
+        setShowErrMsg(false)
+        toggleDelete()
+    }
+    const handleSetEditing = () => {
+        setEditing(!editing)
+        setShowErrMsg(false)
+    }
     return (<>
         {!editing &&
             <button
-                onClick={toggleDelete}
+                onClick={handleToggleDelete}
                 className='controlBtn delete'>
                 <FiTrash2 /> Delete
             </button>
         }
 
         <button
-            onClick={() => setEditing(!editing)}
+            onClick={handleSetEditing}
+            // onClick={() => setEditing(!editing)}
             className='controlBtn edit'>
             {editing ?
                 <>Done Editing <FiCheck style={{ "color": "green", "fontSize": "1.5rem" }} /></>
