@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FiX } from 'react-icons/fi'
 import EditModalControls from './EditModalControls';
 import EditModalVerifyDelete from './EditModalVerifyDelete';
@@ -15,6 +15,13 @@ const EditModal = () => {
     const [editData, setEditData] = useState({ "id": 0, "title": "", "body": "" })
     const [editing, setEditing] = useState(false)
     const [verifyDelete, setVerifyDelete] = useState(false)
+    const [showErrMsg, setShowErrMsg] = useState(false)
+
+    const titleBox = useRef();
+
+    useEffect(() => {
+        editing && titleBox.current.focus();
+    }, [editing])
 
     useEffect(() => {
         individualRecord.length > 0 &&
@@ -55,9 +62,11 @@ const EditModal = () => {
 
                         {editing ?
                             <input
+                                ref={titleBox}
                                 className='editTitleBox'
                                 value={editData.title}
                                 name="title"
+                                placeholder='Enter Title'
                                 onChange={handleChange} />
                             :
                             <h3 className="recordTitle">{editData.title}</h3>
@@ -69,6 +78,7 @@ const EditModal = () => {
                                 value={editData.body}
                                 name="body"
                                 onChange={handleChange}
+                                placeholder="Enter Body ..."
                                 rows="4"
                                 cols="80" />
                             :
@@ -78,6 +88,7 @@ const EditModal = () => {
                         <span>Record id: {elem.id}</span>
 
                         {verifyDelete && <span className='verifyDeleteMsg'>Delete this record?</span>}
+                        {showErrMsg && <span style={{ color: "red" }}>Fields can not be blank</span>}
                         <div className='editControlsContainer'>
 
                             {verifyDelete ?
@@ -94,7 +105,8 @@ const EditModal = () => {
                                     setEditing={setEditing}
                                     toggleDelete={() => setVerifyDelete(true)}
                                     editData={editData}
-                                    displayMsg={displayMsg} />
+                                    displayMsg={displayMsg}
+                                    setShowErrMsg={setShowErrMsg} />
                             }
 
                         </div>
