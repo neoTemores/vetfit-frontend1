@@ -66,7 +66,7 @@ const EditModal = () => {
                                 className='editTitleBox'
                                 value={editData.title}
                                 name="title"
-                                placeholder='Enter Title'
+                                placeholder='Enter title'
                                 onChange={handleChange} />
                             :
                             <h3 className="recordTitle">{editData.title}</h3>
@@ -78,7 +78,7 @@ const EditModal = () => {
                                 value={editData.body}
                                 name="body"
                                 onChange={handleChange}
-                                placeholder="Enter Body ..."
+                                placeholder="Enter body ..."
                                 rows="4"
                                 cols="80" />
                             :
