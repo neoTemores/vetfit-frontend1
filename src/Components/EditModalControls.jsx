@@ -50,7 +50,6 @@ const EditModalControls = ({ elem, editing, setEditing, toggleDelete, editData, 
 
         <button
             onClick={handleSetEditing}
-            // onClick={() => setEditing(!editing)}
             className='controlBtn edit'>
             {editing ?
                 <>Done Editing <FiCheck style={{ "color": "green", "fontSize": "1.5rem" }} /></>
