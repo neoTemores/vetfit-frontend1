@@ -168,7 +168,7 @@ button:hover {
 }
 
 .navbarContainer {
-  background-color: rgba(0, 0, 255, .5);
+  background-color: #214460;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #111;
   display: flex;
@@ -352,4 +352,13 @@ button:hover {
   to {
     transform: scale(1);
   }
+}
+
+Footer{
+  background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
 }
