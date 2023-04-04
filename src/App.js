@@ -47,11 +47,12 @@ const App = () => {
       {showModal && <EditModal />}
       {showNewRecordModal && <NewRecordModal />}
       <Routes>
-     ``   <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/all-records' element={<AllRecords />} />
         <Route path="/login" element={<Login />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

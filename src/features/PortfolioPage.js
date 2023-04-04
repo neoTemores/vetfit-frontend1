@@ -1,6 +1,7 @@
 import React from "react";
 import PortfolioTable from './PortfolioTable';
 import '../PortfolioPage.css';
+import Footer from "./Footer";
 
 function PortfolioPage() {
     const portfolio = [

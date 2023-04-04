@@ -25,3 +25,10 @@ table td {
     margin-top: 2rem;
     font-weight: bold;
 }
+
+button:hover {
+    background-color: #214460;
+    border: 1px;
+    color: #ffffff;
+    border: 1px solid #214460;
+}
