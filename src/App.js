@@ -9,6 +9,9 @@ import EditModal from './Components/EditModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { setRecordsToDisplay } from './features/recordsToDisplay'
 import NewRecordModal from './Components/NewRecordModal'
+import Footer from './features/Footer'
+import Login from './features/Login'
+import PortfolioPage from './features/PortfolioPage'
 
 export const URL = {
   "LIST_NAME": "recordList",
@@ -39,14 +42,15 @@ const App = () => {
 
   return (
     <div className="appContainer">
-      <Navbar />
+      {/* <Navbar /> */}
       {showMsg && <div className='updateMsgContainer'><h3>{msgText}</h3></div>}
       {showModal && <EditModal />}
       {showNewRecordModal && <NewRecordModal />}
       <Routes>
-        <Route path='/' element={<Home />} />
+     ``   <Route path='/' element={<Home />} />
         <Route path='/all-records' element={<AllRecords />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
     </div>
   );
