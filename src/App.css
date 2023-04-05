@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  margin: 0;
   font-family: Georgia, sans-serif;
 }
 
@@ -168,13 +167,14 @@ button:hover {
 }
 
 .navbarContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80px;
   background-color: #214460;
   border-radius: 5px;
   box-shadow: 4px 4px 4px #111;
-  display: flex;
   gap: 1.5rem;
-  justify-content: center;
-  align-items: center;
   padding: 1rem 1.5rem;
   font-size: 1.25rem;
   flex-wrap: wrap;
@@ -364,11 +364,12 @@ Footer{
 }
 
 .usaa-logo{
-  max-width: 50px;
-  max-height: 40px;
+  height: 30px;
+  margin-right: 1rem;
 }
 
 .logoContainer{
- position:absolute;
- left: 1rem;
+  display: flex;
+  position:absolute;
+  left: 1rem;
 }
