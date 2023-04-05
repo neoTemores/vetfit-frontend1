@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import '../PortfolioPage.css';
-import Navbar from "../Components/Navbar";
 
 function PortfolioTable(props) {
     const [portfolio, setPortfolio] = useState(props.portfolio);
@@ -32,8 +31,6 @@ function PortfolioTable(props) {
     }
 
     return (
-        <>
-        <Navbar />
         <table>
             <tr>
                 <th>Symbol</th>
@@ -63,7 +60,6 @@ function PortfolioTable(props) {
                 )}
         </tbody>
         </table>
-        </>
     );
 }
 

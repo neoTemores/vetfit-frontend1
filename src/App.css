@@ -164,6 +164,7 @@ button:hover {
   color: #eee;
   user-select: none;
   text-shadow: 1px 1px 2px black;
+  margin-left: 2.5rem;
 }
 
 .navbarContainer {
@@ -171,17 +172,17 @@ button:hover {
   border-radius: 5px;
   box-shadow: 4px 4px 4px #111;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  padding: .5rem 1rem;
-  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
   flex-wrap: wrap;
 }
 
 .linksContainer {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-left: auto;
   align-items: flex-end;
 }
@@ -360,4 +361,14 @@ Footer{
 			position: absolute;
 			bottom: 0;
 			width: 100%;
+}
+
+.usaa-logo{
+  max-width: 50px;
+  max-height: 40px;
+}
+
+.logoContainer{
+ position:absolute;
+ left: 1rem;
 }
