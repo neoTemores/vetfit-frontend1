@@ -170,12 +170,12 @@ button:hover {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80px;
+  height: 5rem;
   background-color: #214460;
   border-radius: 5px;
   box-shadow: 4px 4px 4px #111;
   gap: 1.5rem;
-  padding: 1rem 1.5rem;
+  padding: 0rem 1.4rem;
   font-size: 1.25rem;
   flex-wrap: wrap;
 }
@@ -366,10 +366,12 @@ Footer{
 .usaa-logo{
   height: 30px;
   margin-right: 1rem;
+  margin-top: 1.5rem;
 }
 
 .logoContainer{
   display: flex;
   position:absolute;
-  left: 1rem;
+  padding: 0px;
+  margin: 0px;
 }
