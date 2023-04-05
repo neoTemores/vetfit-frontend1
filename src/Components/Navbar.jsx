@@ -19,12 +19,12 @@ const Navbar = () => {
     return (
         <div className='navbarContainer'>
             <div className='titleContainer'>
-                <h2 className="headerTitle">Application Title</h2>
+                <h2 className="headerTitle">MockStock</h2>
             </div>
 
             <div className='linksContainer'>
-                <Link className='navLink' id="/" to="/">Home</Link>
-                <Link className='navLink' id="/all-records" to="/all-records">Records</Link>
+                <Link className='navLink' id="/" to="/">Login</Link>
+                <Link className='navLink' id="/portfolio" to="/all-records">Portfolio</Link>
                 <Link className='navLink' id="/about" to="/about">About</Link>
             </div>
 

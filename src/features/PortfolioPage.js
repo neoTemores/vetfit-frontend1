@@ -1,7 +1,6 @@
 import React from "react";
 import PortfolioTable from './PortfolioTable';
 import '../PortfolioPage.css';
-import Footer from "./Footer";
 
 function PortfolioPage() {
     const portfolio = [
@@ -12,8 +11,8 @@ function PortfolioPage() {
 
     return (
         <div>
-            <h2> My Portfolio </h2>
             <PortfolioTable portfolio={portfolio} />
+            <h2> My Portfolio </h2>
         </div>
     )
 }
